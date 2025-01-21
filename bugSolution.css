@@ -1,0 +1,29 @@
+/* bugSolution.css */
+
+/* Instead of a single complex calculation, break it into smaller parts */
+:root {
+  --container-width: 1000px;
+  --side-padding: 20px;
+}
+
+.container {
+  width: calc(var(--container-width) - 2 * var(--side-padding)); /* More readable */
+  padding: var(--side-padding);
+  /* Use CSS variables to manage values and make adjustments easier */
+  /* Consider adding error handling with JavaScript for particularly critical values */
+}
+
+/* Always ensure consistent units */
+.element {
+  width: calc(50% - 10px); /* Consistent use of pixels */
+}
+
+/* Avoid division by zero or calculations that might result in NaN */
+.another-element {
+  width: 100px;
+}
+/* Use a fallback value or ensure that the denominator is never zero in any possible scenario */
+/*Example of the issue: */
+/*.problematic {
+  width: calc(100px / 0); /* This will likely result in the width being ignored */
+}*/
